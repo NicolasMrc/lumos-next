@@ -1,32 +1,47 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div>
+        <div class="fixed bg-indigo-600 px-3 py-2 h-12 w-screen">
+            <div class="flex text-white">
+                <h1 class="text-xl">LUMOS</h1>
+            </div>
+        </div>
+        <div id="side" class="fixed mt-12 bg-white w-56  border-gray-400">
+            <sidebar></sidebar>
+        </div>
+        <div class="ml-56 pt-12">
+            <div class="container mx-auto pt-12">
+                <router-view></router-view>
+            </div>
+        </div>
     </div>
-    <router-view />
-  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import Sidebar from './components/sidebar'
+import {mapActions} from 'vuex'
+export default {
+    name: 'App',
+    components: { Sidebar },
+    created() {
+        this.bindAnimations()
+        this.bindDevices()
+    },
+    methods:{
+        ...mapActions(['bindAnimations', 'bindDevices']),
+    }
+}
+</script>
+
+<style>
+html {
+    background-color: #f4f4f4;
 }
 
-#nav {
-  padding: 30px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+#side {
+    height: calc(100vh - 3rem);
 }
 </style>
