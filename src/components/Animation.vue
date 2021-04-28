@@ -12,7 +12,11 @@
             <span>{{ animation.name }}</span>
         </div>
         <div class="mt-4 flex justify-end">
-            <button type="button" @click="preview" class="w-1/2 px-3 w-full text-center bg-indigo-500 text-white rounded">
+            <button
+                type="button"
+                @click="preview"
+                class="w-1/2 px-3 w-full text-center bg-indigo-500 text-white rounded"
+            >
                 preview
             </button>
         </div>
@@ -20,7 +24,7 @@
 </template>
 
 <script>
-    import { mapGetters, mapMutations} from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
     name: 'Animation',

@@ -1,10 +1,10 @@
 <template>
-  <span>home page !</span>
+    <span>home page !</span>
 </template>
 
 <script>
 export default {
-  name: "Home",
-  components: {}
-};
+    name: 'Home',
+    components: {},
+}
 </script>
